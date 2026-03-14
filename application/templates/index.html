@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}ホーム - Bookmark App{% endblock %}
+
+{% block content %}
+<h2>ブックマーク一覧</h2>
+
+<ul class="bookmark-list">
+  {% for bookmark_item in bookmark_list %}
+    <li>
+      <a href="{{ bookmark_item.url }}" target="_blank" class="bookmark-item-title">{{ bookmark_item.title }}</a>
+      <div class="btn-group">
+        <a class="btn btn-green" href="{{ url_for('edit', id=bookmark_item.id) }}">編集</a>
+        <form action="{{ url_for('delete', id=bookmark_item.id) }}" method="post">
+          <button type="submit" class="btn btn-red">削除</button>
+        </form>
+      </div>
+    </li>
+  {% else %}
+    <li>まだブックマークが登録されていません。</li>
+  {% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}追加 - Bookmark App{% endblock %}
+
+{% block content %}
+<h2>ブックマークを追加</h2>
+
+<form action="/add" method="post">
+  <div>
+    <label>タイトル</label>
+    <input type="text" name="title" placeholder="サイト名" required>
+  </div>
+
+  <div>
+    <label>URL</label>
+    <input type="url" name="url" placeholder="https://example.com" required>
+  </div>
+
+  <div class="btn-group">
+    <button type="submit" class="btn btn-blue">登録</button>
+    <a class="btn btn-gray" href="/">キャンセル</a>
+  </div>
+</form>
+{% endblock %}
